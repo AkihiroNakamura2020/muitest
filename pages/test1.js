@@ -24,6 +24,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+//image
+import MyImage from '../components/image'
 
 const drawerWidth = 240;
 
@@ -31,9 +33,10 @@ export default function Index() {
   //<Container maxWidth="sm">
   return (    
     
-    
-    <Container>
+    <Container maxWidth="lg">
       <Box sx={{ display: 'flex' }}>
+      {/* 要素に定義するだけで、その直下の要素が並列になる便利なスタイル */}
+
       <CssBaseline />
 
       <AppBar
@@ -42,7 +45,7 @@ export default function Index() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Permanent drawer
+            Curration App
           </Typography>
         </Toolbar>
       </AppBar>
@@ -61,6 +64,10 @@ export default function Index() {
       >
         <Toolbar />
         <Divider />
+        {/* Divider(区切り線) は、リストおよびレイアウトのコンテンツをグループ化する細い線 */}
+
+        <MyImage fname="image.jpg" size="250" />
+
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
@@ -85,8 +92,12 @@ export default function Index() {
       </Drawer>
 
       <Box
+        // component="main"
+        // sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+        //sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+       
       >
         <Toolbar />
         <Typography paragraph>
@@ -115,86 +126,6 @@ export default function Index() {
       </Box>
     </Box>
 
-      <Box sx={{ flexGrow: 1 }}>
-      
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-           
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-
-    </Box>
-
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
-        </Typography>
-
-        <>
-      <Button variant="contained">Hello World</Button>
-
-    </>
-
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          </IconButton>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-
-    <Typography variant="h1" component="h2">
-  h1. Heading
-</Typography>
-
-<Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }}  gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-          belent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} >
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-
-      </Box>
     </Container>
   );
 }
